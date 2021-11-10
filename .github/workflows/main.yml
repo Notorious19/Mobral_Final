@@ -1,0 +1,27 @@
+on: 
+   issues:
+    types: [opened]
+   issue_comment:
+    types: [created]
+   push:
+    branches:
+      - main
+   pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  artia_comment_job:
+    runs-on: ubuntu-latest
+    name: A job to comment in artia activity.
+    steps:
+      - name: Comentando atividade
+        id: Comment
+        uses: donPain/action_temp@v2.5
+        with: 
+          organizationId: 111449
+          accountId: 3762971
+          folderId: 3762973
+          creatorEmail: 'vicgv19@gmail.com'
+          creatorPassword: ${{ secrets.ARTIA_PASSWORD }}
